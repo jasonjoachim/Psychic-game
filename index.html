@@ -28,52 +28,51 @@
 
     function computerPick(){
         return computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    }
     
+    }
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = computerPick();
     console.log(computerGuess);
    
-
+    //sets variables for wins, losses, guesses left and guesses so far-these will populate html fields
     var wins=0;
     var losses=0;
-    var guessesleft=0;
+    var guessesleft=10;
     var guessessofar=[]
   
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
 
-     // Determines which key was pressed.
+     // Determines which key was pressed 
      var userGuess = event.key;
         console.log(userGuess);
         guessessofar.push(userGuess);
+        
+
+        //and logs to the html
 
     document.querySelector("#Guesses").innerHTML=guessessofar;
 
-
-    // if (guessessofar <10) &&
-    //  //Compare user and computer guesses
-    // (userGuess!==computerGuess){losses++,guessesleft--, guessessofar.push(userGuess)}{
-
-    // } else if (userGuess===computerGuess) {
-    //     wins++;
-   
-
-     
-//     matches= wins, non matches equal losses
-
-//     compile all wins/losses
-
-
-//     // Select the div with the id "game", and insert the following HTML into it.
-//     document.querySelector("#game").innerHTML = "You chose: " + userGuess + ". The computer chose: " + computerGuess;
-
-//     after 10 losses, game starts over, or 
-//     after 1 win game starts over
-//     } */}
+    if(userGuess===computerGuess){
+        wins++;
+        guessesleft=10;
+        guessessofar=[]
+        computerGuess;
+    } else if(guessesleft>1){
+        guessesleft--;  
+    } else { 
+        losses++;
+        guessesleft=10;
+        guessessofar=[];
+        computerGuess;
+    }
+    document.querySelector("#Wins").innerHTML=wins;
+    document.querySelector("#Losses").innerHTML=losses;
+    document.querySelector("#Guessesleft").innerHTML=guessesleft;
 
     }
+    
   
     </script>
 </body>
