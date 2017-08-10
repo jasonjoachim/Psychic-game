@@ -13,10 +13,13 @@
 <body>
     <h1>Guess What Letter Im thinking of</h1>
 
-        <b>Last Guess: <span id=“lastGuess”>b</span></b><br>
-        <b>Wins: <span id=“wins”>0</span></b><br>
-        <b>Losses: <span id=“losses”>0</span></b><br>
-        <b>Guesses Left: <span id=“guessesLeft”>0</span></b><br>
+    <div>
+
+        <b>Guesses So Far: <span id="Guesses">b</span></b><br>
+        <b>Wins: <span id="Wins">0</span></b><br>
+        <b>Losses: <span id="Losses">0</span></b><br>
+        <b>Guesses Left: <span id="Guessesleft">0</span></b><br>
+    </div>
 
     <script type="text/javascript">
 
@@ -34,8 +37,8 @@
 
     var wins=0;
     var losses=0;
-    var guesses=0;
-
+    var guessesleft=0;
+    var guessessofar=[]
   
 
     // This function is run whenever the user presses a key.
@@ -44,13 +47,24 @@
      // Determines which key was pressed.
      var userGuess = event.key;
         console.log(userGuess);
-     //Compare user and computer guesses
-     
+        guessessofar.push(userGuess);
 
-//     if 
+    document.querySelector("#Guesses").innerHTML=guessessofar;
+
+
+    // if (guessessofar <10) &&
+    //  //Compare user and computer guesses
+    // (userGuess!==computerGuess){losses++,guessesleft--, guessessofar.push(userGuess)}{
+
+    // } else if (userGuess===computerGuess) {
+    //     wins++;
+   
+
+     
 //     matches= wins, non matches equal losses
 
 //     compile all wins/losses
+
 
 //     // Select the div with the id "game", and insert the following HTML into it.
 //     document.querySelector("#game").innerHTML = "You chose: " + userGuess + ". The computer chose: " + computerGuess;
@@ -59,7 +73,7 @@
 //     after 1 win game starts over
 //     } */}
 
-        }
+    }
   
     </script>
 </body>
